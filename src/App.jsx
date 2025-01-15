@@ -4,9 +4,6 @@ import './App.css'
 
 
 
-
-
-
 function Country({ country }){
 
   function getLanguages(){
@@ -32,8 +29,6 @@ function Country({ country }){
 
 function App() {
 
-  const API_KEY = `010a8d7968b24bc3258842caf4853052 `
-
   const [country, setCountry] = useState({})
   const [countryInput, setCountryInput] = useState("")
   const [isloaded, setIsloaded] = useState(false)
@@ -55,12 +50,6 @@ function App() {
 
     return  axios.get(`https://studies.cs.helsinki.fi/restcountries/api/name/${countryName}`).then(response => response.data)
   
-  }
-
-  // get the weather of the capital city
-  function getWeather(capitalCity){
-    return axios.get(`api.openweathermap.org/data/2.5/weather?q=${capitalCity},uk&APPID=${API_KEY}`).then(response => response.data.main.temp
-    )
   }
   useEffect(()=>{
     // getData().then(data =>{
@@ -98,9 +87,6 @@ function App() {
            </div>
 
         <div> {isloaded ? <Country country={country}/> : `Result will be displayed here`}</div>
-      </>
-      <>
-          <p>{getWeather('london')}</p>
       </>
       
     </>
